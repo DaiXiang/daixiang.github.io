@@ -1,26 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[Deffi]]></title>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://deffi.info/"/>
-  <updated>2014-10-03T15:56:49.453Z</updated>
-  <id>http://deffi.info/</id>
+  <title>Hexo 主题修改:为博客实现更多功能 | Deffi</title>
+  <meta name="author" content="Deffi">
   
-  <author>
-    <name><![CDATA[Deffi]]></name>
-    <email><![CDATA[daixiang0919@gmail.com]]></email>
-  </author>
+  <meta name="description" content="主要介绍快速导航、返回顶部、Swiftype 搜索支持等功能的实现，代码实现细节直戳 GitHub">
   
-  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
-  <entry>
-    <title><![CDATA[Hexo 主题修改:为博客实现更多功能]]></title>
-    <link href="http://deffi.info/2014/10/03/Hexo-%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%AE%9E%E7%8E%B0%E6%9B%B4%E5%A4%9A%E5%8A%9F%E8%83%BD/"/>
-    <id>http://deffi.info/2014/10/03/Hexo-主题修改为博客实现更多功能/</id>
-    <published>2014-10-03T14:37:02.000Z</published>
-    <updated>2014-10-03T15:55:28.000Z</updated>
-    <content type="html"><![CDATA[<p>主要介绍快速导航、返回顶部、Swiftype 搜索支持等功能的实现，代码实现细节直戳 <a href="https://github.com/DaiXiang/hexo-theme-BsLight/" target="_blank" rel="external">GitHub</a></p>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo 主题修改:为博客实现更多功能"/>
+  <meta property="og:site_name" content="Deffi"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="shortcut icon">
+  <link rel="alternate" href="http://deffi.info/atom.xml" title="Deffi" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+  
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53929214-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div id="nav-top">
+  <div class="alignleft main-title">
+    <h1>Deffi</h1>
+    <h2></h2>
+  </div>
+  <nav id="main-nav" class="alignright">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+        <li><a href="/about-me">About</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="alignright">
+          <a href="http://deffi.info/2014/10/03/Hexo-主题修改为博客实现更多功能/#disqus_thread" class="comment-link"></a>
+        </div>
+      
+      
+        <div class="icon"></div>
+        <time datetime="2014-10-03T14:37:02.000Z"><a href="/2014/10/03/Hexo-主题修改为博客实现更多功能/">Oct 3 2014</a></time>
+      
+      
+  
+    <h1 class="title">Hexo 主题修改:为博客实现更多功能</h1>
+  
+
+      
+    </header>
+    <div class="entry">
+      
+        
+          
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Navigation</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#快速导航"><span class="toc-number">1.</span> <span class="toc-text">快速导航</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#找到文章内容主体，插入快速导航"><span class="toc-number">1.1.</span> <span class="toc-text">找到文章内容主体，插入快速导航</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速导航主体"><span class="toc-number">1.2.</span> <span class="toc-text">快速导航主体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS_样式"><span class="toc-number">1.3.</span> <span class="toc-text">CSS 样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#增强效果"><span class="toc-number">1.4.</span> <span class="toc-text">增强效果</span></a></li></ol></li></ol>
+    </div>
+
+        
+        <p>主要介绍快速导航、返回顶部、Swiftype 搜索支持等功能的实现，代码实现细节直戳 <a href="https://github.com/DaiXiang/hexo-theme-BsLight/" target="_blank" rel="external">GitHub</a></p>
 <a id="more"></a>
 
 <h3 id="快速导航">快速导航</h3>
@@ -40,78 +113,267 @@
 <h4 id="增强效果">增强效果</h4>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div></pre></td><td class="code"><pre><div class="line">// ..\layout\_partial\toc_action.ejs</div><div class="line">// 底部添加快速导航开关图标（移动设备上可关闭，不影响阅读）</div><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"menu-nav"</span> <span class="attribute">class</span>=<span class="value">"footer-btn"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">a</span> <span class="attribute">title</span>=<span class="value">"&lt;%= __('quick_nav') %&gt;"</span>&gt;</span><span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"/img/list.png"</span>/&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  $(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">var</span> toc = $(<span class="string">'#toc'</span>);</div><div class="line">    <span class="keyword">var</span> nav = $(<span class="string">'#menu-nav'</span>);</div><div class="line">    <span class="keyword">var</span> toccopy;</div><div class="line">    <span class="keyword">var</span> status = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">if</span> ($(<span class="built_in">window</span>).width() &lt;= <span class="number">583</span>)</div><div class="line">      status = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">var</span> first = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">var</span> position = toc.position();</div><div class="line">    <span class="keyword">var</span> wid = toc.width();</div><div class="line">    $(<span class="built_in">window</span>).scroll(onScroll);</div><div class="line">    $(nav).click(opennav);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">tocout</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">if</span> (first && status) {</div><div class="line">        <span class="comment">// 复制 toc 副本，将源 toc 浮起，toccopy 占位使得源 toc 浮起后不影响文档流</span></div><div class="line">        toccopy = $(toc).clone();</div><div class="line">        $(toccopy).insertAfter(toc);</div><div class="line">        toc.css(<span class="string">'float'</span>,<span class="string">''</span>);</div><div class="line">        toc.css(<span class="string">'position'</span>,<span class="string">'fixed'</span>);</div><div class="line">        onResize();</div><div class="line">        toc.css(<span class="string">'z-index'</span>,<span class="string">'99'</span>);</div><div class="line">        toc.css(<span class="string">'width'</span>,wid);</div><div class="line">        $(<span class="built_in">window</span>).resize(onResize);</div><div class="line">        first = <span class="literal">false</span>;</div><div class="line">        <span class="comment">// toccopy 占位但隐藏（仍占据文档流）</span></div><div class="line">        toccopy.css(<span class="string">'visibility'</span>, <span class="string">'hidden'</span>);</div><div class="line">      }</div><div class="line">      </div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// 当 toc 超出窗口范围时，浮起固定位置</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onScroll</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">var</span> top = $(<span class="built_in">window</span>).scrollTop();</div><div class="line">      <span class="keyword">if</span>(top &gt;= position.top + <span class="number">30</span>){</div><div class="line">        tocout();</div><div class="line">        $(nav).stop().fadeTo(<span class="number">300</span>, <span class="number">1</span>); <span class="comment">// fade back in</span></div><div class="line">        $(nav).animate({bottom: <span class="string">"25px"</span>}, { queue: <span class="literal">false</span>, duration: <span class="number">10</span> });</div><div class="line">      }<span class="keyword">else</span>{</div><div class="line">        hidNav();</div><div class="line">        $(<span class="built_in">window</span>).off(<span class="string">"resize"</span>, onResize);</div><div class="line">        $(nav).stop().fadeTo(<span class="number">300</span>, <span class="number">0</span>); <span class="comment">// fade out</span></div><div class="line">        $(nav).animate({bottom: <span class="string">"-200px"</span>}, { queue: <span class="literal">false</span>, duration: <span class="number">10</span> });</div><div class="line">      }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// 响应式支持</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onResize</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">var</span> width = $(<span class="built_in">window</span>).width();</div><div class="line">      <span class="keyword">var</span> left = $(<span class="string">'#sidebar'</span>).position().left;</div><div class="line">      <span class="keyword">if</span> (width &gt; <span class="number">883</span>){</div><div class="line">        toc.css(<span class="string">'top'</span>, <span class="string">'88px'</span>);</div><div class="line">        toc.css(<span class="string">'left'</span>, left - <span class="number">18</span>);</div><div class="line">      } <span class="keyword">else</span>{</div><div class="line">        <span class="keyword">var</span> top = $(<span class="string">'#nav-top'</span>).innerHeight();</div><div class="line">        toc.css(<span class="string">'top'</span>, top);</div><div class="line">        <span class="keyword">var</span> fix = $(<span class="string">'#main-col'</span>).width() - toc.width() - <span class="number">35</span>;</div><div class="line">        toc.css(<span class="string">'left'</span>, left + fix);</div><div class="line">        <span class="keyword">if</span>($(<span class="built_in">window</span>).scrollTop() &gt;= position.top + <span class="number">30</span>){</div><div class="line">          $(nav).stop().fadeTo(<span class="number">300</span>, <span class="number">1</span>); <span class="comment">// fade back in</span></div><div class="line">          $(nav).animate({bottom: <span class="string">"25px"</span>}, { queue: <span class="literal">false</span>, duration: <span class="number">10</span> });</div><div class="line">        }</div><div class="line">      }</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">hidNav</span><span class="params">()</span> </span>{</div><div class="line">      toc.css(<span class="string">'position'</span>,<span class="string">''</span>);</div><div class="line">      toc.css(<span class="string">'float'</span>,<span class="string">'right'</span>);</div><div class="line">      $(toccopy).remove();</div><div class="line">      first = <span class="literal">true</span>;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">opennav</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">if</span> (status) {</div><div class="line">        status = <span class="literal">false</span>;</div><div class="line">        hidNav();</div><div class="line">      } <span class="keyword">else</span> {</div><div class="line">        status = <span class="literal">true</span>;</div><div class="line">        tocout();</div><div class="line">      }</div><div class="line">    }</div><div class="line">  });</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
 
-]]></content>
-    <summary type="html"><![CDATA[<p>主要介绍快速导航、返回顶部、Swiftype 搜索支持等功能的实现，代码实现细节直戳 <a href="https://github.com/DaiXiang/hexo-theme-BsLight/" target="_blank" rel="external">GitHub</a></p>
-]]></summary>
-    
-      <category term="Log" scheme="http://deffi.info/tags/Log/"/>
-    
-  </entry>
+
+      
+    </div>
+    <footer>
+      
+      
   
-  <entry>
-    <title><![CDATA[GitHub Pages + Hexo + GoDaddy + DNSPod = Blog]]></title>
-    <link href="http://deffi.info/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/"/>
-    <id>http://deffi.info/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/</id>
-    <published>2014-09-30T12:51:59.000Z</published>
-    <updated>2014-09-30T14:41:33.000Z</updated>
-    <content type="html"><![CDATA[<p>一直想折腾个自己的博客网站写点东西，之前想的解决方案是 GitHub Pages + Octopress，后来了解到 Hexo，可能因为后出的缘故，就选择它了。</p>
-<a id="more"></a>
+  <div class="tags">
+    <a href="/tags/Log/">Log</a>
+  </div>
 
-<h2 id="Start">Start</h2>
-<h3 id="GitHub_Pages">GitHub Pages</h3>
-<p><a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a> 是 GitHub 为个人主页或项目主页提供的免费静态资源空间，可配合博客系统搭建自己的博客网站。</p>
-<h3 id="Hexo">Hexo</h3>
-<p><a href="http://hexo.io/" target="_blank" rel="external">Hexo</a> 是基于 Node.js 的博客系统，只需简单的几个命令即可完成博客的生成与部署。Hexo 本地将博客生成静态页面，然后再将其部署至 GitHub。</p>
-<h2 id="Then">Then</h2>
-<h3 id="GoDaddy">GoDaddy</h3>
-<p><a href="https://www.godaddy.com/" target="_blank" rel="external">GoDaddy</a> 是一家域名服务商，支持支付宝结算。GitHub Pages 会提供一个二级域名供外界访问 <code>http://username.github.io</code>，如果你不满意这个默认域名，可以自行购买一个，然后与 GitHub 绑定使用。</p>
-<h3 id="DNSPod">DNSPod</h3>
-<p><a href="https://www.dnspod.cn/" target="_blank" rel="external">DNSPod</a> 是国内域名解析服务提供商，现被腾讯收购了，其免费服务够用。主要是 GoDaddy 自己的域名解析不稳定，而且速度也会受墙影响。</p>
-<h3 id="域名邮箱">域名邮箱</h3>
-<p>有了自己的域名后，就可以使用域名邮箱服务，自定义邮箱地址。推荐<a href="https://exmail.qq.com/" target="_blank" rel="external">腾讯企业邮箱</a>。</p>
-<h2 id="End">End</h2>
-<p>了解以上信息之后，就可以按照以上介绍的顺序一个个去弄了。每项服务都有新手向导，链接和关键词也都给出来了。</p>
-<h3 id="参考">参考</h3>
-<ul>
-<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></li>
-</ul>
-]]></content>
-    <summary type="html"><![CDATA[<p>一直想折腾个自己的博客网站写点东西，之前想的解决方案是 GitHub Pages + Octopress，后来了解到 Hexo，可能因为后出的缘故，就选择它了。</p>
-]]></summary>
-    
-      <category term="Log" scheme="http://deffi.info/tags/Log/"/>
-    
-  </entry>
+      
+        <div class="alignright share-box">
   
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <link href="http://deffi.info/2014/08/17/hello-world/"/>
-    <id>http://deffi.info/2014/08/17/hello-world/</id>
-    <published>2014-08-17T11:12:59.000Z</published>
-    <updated>2014-09-30T14:46:24.000Z</updated>
-    <content type="html"><![CDATA[<p><a id="more"></a><br>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    <summary type="html"><![CDATA[<p>]]></summary>
     
-      <category term="Log" scheme="http://deffi.info/tags/Log/"/>
+      <a class="share-link share-weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://deffi.info/2014/10/03/Hexo-主题修改为博客实现更多功能/&title=《Hexo 主题修改:为博客实现更多功能》" title="weibo"></a>
     
-  </entry>
+      <a class="share-link share-google" href="https://plus.google.com/share?url=http://deffi.info/2014/10/03/Hexo-主题修改为博客实现更多功能/&title=《Hexo 主题修改:为博客实现更多功能》" title="google"></a>
+    
   
-</feed>
+</div>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'deffi'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+</section>
+
+
+  <div id="menu-nav" class="footer-btn">
+  <a title="Quick Nav"><img src="/img/list.png"/></a>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    var toc = $('#toc');
+    var nav = $('#menu-nav');
+    var toccopy;
+    var status = true;
+    if ($(window).width() <= 583)
+      status = false;
+    var first = true;
+    var position = toc.position();
+    var wid = toc.width();
+    $(window).scroll(onScroll);
+    $(nav).click(opennav);
+
+    function tocout() {
+      if (first && status) {
+        toccopy = $(toc).clone();
+        $(toccopy).insertAfter(toc);
+        toc.css('float','');
+        toc.css('position','fixed');
+        onResize();
+        toc.css('z-index','99');
+        toc.css('width',wid);
+        $(window).resize(onResize);
+        first = false;
+        toccopy.css('visibility', 'hidden');
+      }
+      
+    }
+
+    function onScroll() {
+      var top = $(window).scrollTop();
+      if(top >= position.top + 30){
+        tocout();
+        $(nav).stop().fadeTo(300, 1); // fade back in
+        $(nav).animate({bottom: "25px"}, { queue: false, duration: 10 });
+      }else{
+        hidNav();
+        $(window).off("resize", onResize);
+        $(nav).stop().fadeTo(300, 0); // fade out
+        $(nav).animate({bottom: "-200px"}, { queue: false, duration: 10 });
+      }
+    }
+
+    function onResize() {
+      var width = $(window).width();
+      var left = $('#sidebar').position().left;
+      if (width > 883){
+        toc.css('top', '88px');
+        toc.css('left', left - 18);
+      } else{
+        var top = $('#nav-top').innerHeight();
+        toc.css('top', top);
+        var fix = $('#main-col').width() - toc.width() - 35;
+        toc.css('left', left + fix);
+        if($(window).scrollTop() >= position.top + 30){
+          $(nav).stop().fadeTo(300, 1); // fade back in
+          $(nav).animate({bottom: "25px"}, { queue: false, duration: 10 });
+        }
+      }
+    }
+
+    function hidNav() {
+      toc.css('position','');
+      toc.css('float','right');
+      $(toccopy).remove();
+      first = true;
+    }
+
+    function opennav() {
+      if (status) {
+        status = false;
+        hidNav();
+      } else {
+        status = true;
+        tocout();
+      }
+    }
+  });
+</script>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <div class="entry">
+    
+      <span><a href="/tags/Log/">Log<small>3</small></a></span>
+    
+  </div>
+</div>
+
+
+  <div class="search">
+  
+    <form>
+      <input id="st-search-input" type="search" placeholder="Search">
+    </form>
+    <div id="st-results-container"></div>
+  
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div id="foot-nav">
+  <ul class="social">
+    
+      <li><a class="weibo" href="http://weibo.com/deffity" title="weibo">weibo</a></li>
+    
+      <li><a class="twitter" href="https://twitter.com/daixiang0919" title="twitter">twitter</a></li>
+    
+      <li><a class="google" href="https://plus.google.com/111981717585872445427" title="google">google</a></li>
+    
+      <li><a class="github" href="https://github.com/DaiXiang" title="github">github</a></li>
+    
+      <li><a class="stackoverflow" href="http://stackoverflow.com/users/3762431" title="stackoverflow">stackoverflow</a></li>
+    
+      <li><a class="rss" href="http://deffi.info/atom.xml" title="rss">rss</a></li>
+    
+  </ul>
+</div>
+<div>
+  
+    &copy; 2014 Deffi
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+  <script type="text/javascript">
+    var disqus_shortname = 'deffi';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+  </script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+  <script type="text/javascript">
+    (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+      (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+      e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+    })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+    _st('install','cKZVJwKdqMxm3Y5szsDq');
+  </script>
+
+
+<script type="text/javascript">
+  function navbar() {
+    var top = $('#nav-top').innerHeight();
+    $('#header').css('min-height', top);
+  }
+  navbar();
+  $(window).resize(navbar);
+</script>
+<div id="totop" class="footer-btn">
+  <a title="Return to Top"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script type="text/javascript">
+  $(function(){ 
+	// When to show the scroll link
+	// higher number = scroll link appears further down the page   
+	var upperLimit = 800;
+	
+	// Our scroll link element
+	var scrollElem = $('#totop');
+   
+	// Scroll to top speed
+	var scrollSpeed = 500;
+   
+	// Show and hide the scroll to top link based on scroll position   
+	scrollElem.hide();
+	$(window).scroll(function () {            
+		var scrollTop = $(document).scrollTop();       
+		if ( scrollTop > upperLimit ) {
+		  $(scrollElem).stop().fadeTo(300, 1); // fade back in
+		  $(scrollElem).animate({bottom: "50px"}, { queue: false, duration: 10 });
+		} else {
+		  $(scrollElem).stop().fadeTo(300, 0); // fade out
+	      $(scrollElem).animate({bottom: "-200px"}, { queue: false, duration: 10 });
+			
+		}
+	});
+
+	// Scroll to top animation on click
+	$(scrollElem).click(function(){
+	  $('html, body').animate({scrollTop:0}, scrollSpeed);
+	  $(scrollElem).animate({bottom: "-200px"}, { queue: false, duration: 10 });
+	  return false;
+	});
+  });
+</script>
+</body>
+</html>
