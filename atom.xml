@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://deffi.info/"/>
-  <updated>2014-11-06T06:20:33.656Z</updated>
+  <updated>2014-11-20T15:25:57.158Z</updated>
   <id>http://deffi.info/</id>
   
   <author>
@@ -13,6 +13,47 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案]]></title>
+    <link href="http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E7%BF%BB%E5%A2%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/</id>
+    <published>2014-11-20T13:53:34.000Z</published>
+    <updated>2014-11-20T15:24:49.000Z</updated>
+    <content type="html"><![CDATA[<p>之前一直购买 <a href="jayproxy.net">Jayproxy</a> 服务来翻墙，便宜。后来拿到了 <a href="https://education.github.com/pack" target="_blank" rel="external">GitHub Student Developer Pack</a> - <a href="https://www.digitalocean.com/?refcode=12f2916a1202" target="_blank" rel="external">DigitalOcean</a> 的优惠。就拿来用做翻墙了。</p>
+<a id="more"></a>
+
+<h2 id="Server">Server</h2>
+<h3 id="VPS">VPS</h3>
+<p>选择<br>Size-$5/mo<br>Region-San Francisco 1<br>Image-Debian 7.0 x64<br>即可满足需求</p>
+<p>然后使用PuTTY对VPS进行远程命令管理 - <a href="http://www.tennfy.com/2022.html" target="_blank" rel="external">参考</a></p>
+<h3 id="Shadowsocks-libev">Shadowsocks-libev</h3>
+<p><a href="http://shadowsocks.org/index.html" target="_blank" rel="external">shadowsocks-libev</a> 更适合低配虚拟机。</p>
+<p>First. 更新系统源<br><code>$ apt-get update</code></p>
+<p>Then. 下载编译安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/madeye/shadowsocks-libev.git</div><div class="line">$ <span class="keyword">cd</span> shadowsocks-libev</div><div class="line">$ sudo apt-<span class="built_in">get</span> install build-essential autoconf libtool libssl-dev</div><div class="line">$ ./configure && <span class="keyword">make</span></div><div class="line">$ <span class="keyword">make</span> install</div></pre></td></tr></table></figure>
+
+<p>Final. 开机自启<br><code>$ vi /etc/rc.local</code></p>
+<p>在exit 0前面一行加入<br><code>/usr/local/bin/ss-server -s xxx.xxx.xxx.xxx -p port -k password -m aes-256-cfb &amp;</code></p>
+<p>xxx.xxx.xxx.xxx：是你VPS的ip<br>port：设置端口号<br>password：用来登陆和加密的密码<br>aes-256-cfb：选择加密方式，建议aes-256-cfb</p>
+<p>最后重启VPS即可，到此完成了Shadowsocks Server端的搭建</p>
+<h3 id="Ocserv">Ocserv</h3>
+<p>本来使用Shadowsocks可以满足全平台的需求，但是要求iOS设备越狱。不越狱使用Shadowsocks的iOS客户端非常鸡肋，所以需要新的解决方案 - <a href="http://imkevin.me/post/80157872840/anyconnect-iphone" target="_blank" rel="external">参考</a><br>ps：该教程中所用东西版本较旧，需要自己另找新版本</p>
+<h2 id="Client">Client</h2>
+<h3 id="PC_Android">PC Android</h3>
+<p><a href="http://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">DOWNLOAD</a></p>
+<p>需要填写的信息包括：<br>Server IP 服务器地址<br>Server Port 端口号<br>Password 认证密码<br>Encryption 加密方式<br>Proxy Port 本地端口(1080)</p>
+<h3 id="COW">COW</h3>
+<p>在PC端仅使用Shadowsocks-GUI客户端是不够的，Shadowsocks采用Socks 5协议，有些应用并不支持。需要将其转成HTTP协议代理，这里推荐 <a href="https://github.com/cyfdecyf/cow" target="_blank" rel="external">COW</a></p>
+<h3 id="iOS">iOS</h3>
+<p>前面提到，在未越狱的情况下使用Shadowsocks客户端太鸡肋。而使用Ocserv搭载服务之后可通过 <a href="">AnyConnect</a> 连接(App Store搜索)</p>
+]]></content>
+    <summary type="html"><![CDATA[<p>之前一直购买 <a href="jayproxy.net">Jayproxy</a> 服务来翻墙，便宜。后来拿到了 <a href="https://education.github.com/pack" target="_blank" rel="external">GitHub Student Developer Pack</a> - <a href="https://www.digitalocean.com/?refcode=12f2916a1202" target="_blank" rel="external">DigitalOcean</a> 的优惠。就拿来用做翻墙了。</p>
+]]></summary>
+    
+      <category term="Log" scheme="http://deffi.info/tags/Log/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo 主题修改:为博客实现更多功能]]></title>

@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Deffi</title>
+  <title>VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案 | Deffi</title>
   <meta name="author" content="Deffi">
   
-  <meta name="description" content="">
+  <meta name="description" content="之前一直购买 Jayproxy 服务来翻墙，便宜。后来拿到了 GitHub Student Developer Pack - DigitalOcean 的优惠。就拿来用做翻墙了。">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Hello World"/>
+  <meta property="og:title" content="VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案"/>
   <meta property="og:site_name" content="Deffi"/>
 
   
@@ -68,13 +68,17 @@
   <div class="post-content">
     <header>
       
+        <div class="alignright">
+          <a href="http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/#disqus_thread" class="comment-link"></a>
+        </div>
+      
       
         <div class="icon"></div>
-        <time datetime="2014-08-17T11:12:59.000Z"><a href="/2014/08/17/hello-world/">Aug 17 2014</a></time>
+        <time datetime="2014-11-20T13:53:34.000Z"><a href="/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/">Nov 20 2014</a></time>
       
       
   
-    <h1 class="title">Hello World</h1>
+    <h1 class="title">VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案</h1>
   
 
       
@@ -85,28 +89,37 @@
           
     <div id="toc" class="toc-article">
         <strong class="toc-title">Navigation</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create_a_new_post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run_server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate_static_files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy_to_remote_sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server"><span class="toc-number">1.</span> <span class="toc-text">Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VPS"><span class="toc-number">1.1.</span> <span class="toc-text">VPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shadowsocks-libev"><span class="toc-number">1.2.</span> <span class="toc-text">Shadowsocks-libev</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ocserv"><span class="toc-number">1.3.</span> <span class="toc-text">Ocserv</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client"><span class="toc-number">2.</span> <span class="toc-text">Client</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PC_Android"><span class="toc-number">2.1.</span> <span class="toc-text">PC Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#COW"><span class="toc-number">2.2.</span> <span class="toc-text">COW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number">2.3.</span> <span class="toc-text">iOS</span></a></li></ol></li></ol>
     </div>
 
         
-        <p><a id="more"></a><br>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2>
-<h3 id="Create_a_new_post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+        <p>之前一直购买 <a href="jayproxy.net">Jayproxy</a> 服务来翻墙，便宜。后来拿到了 <a href="https://education.github.com/pack" target="_blank" rel="external">GitHub Student Developer Pack</a> - <a href="https://www.digitalocean.com/?refcode=12f2916a1202" target="_blank" rel="external">DigitalOcean</a> 的优惠。就拿来用做翻墙了。</p>
+<a id="more"></a>
 
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<h2 id="Server">Server</h2>
+<h3 id="VPS">VPS</h3>
+<p>选择<br>Size-$5/mo<br>Region-San Francisco 1<br>Image-Debian 7.0 x64<br>即可满足需求</p>
+<p>然后使用PuTTY对VPS进行远程命令管理 - <a href="http://www.tennfy.com/2022.html" target="_blank" rel="external">参考</a></p>
+<h3 id="Shadowsocks-libev">Shadowsocks-libev</h3>
+<p><a href="http://shadowsocks.org/index.html" target="_blank" rel="external">shadowsocks-libev</a> 更适合低配虚拟机。</p>
+<p>First. 更新系统源<br><code>$ apt-get update</code></p>
+<p>Then. 下载编译安装</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/madeye/shadowsocks-libev.git</div><div class="line">$ <span class="keyword">cd</span> shadowsocks-libev</div><div class="line">$ sudo apt-<span class="built_in">get</span> install build-essential autoconf libtool libssl-dev</div><div class="line">$ ./configure && <span class="keyword">make</span></div><div class="line">$ <span class="keyword">make</span> install</div></pre></td></tr></table></figure>
 
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+<p>Final. 开机自启<br><code>$ vi /etc/rc.local</code></p>
+<p>在exit 0前面一行加入<br><code>/usr/local/bin/ss-server -s xxx.xxx.xxx.xxx -p port -k password -m aes-256-cfb &amp;</code></p>
+<p>xxx.xxx.xxx.xxx：是你VPS的ip<br>port：设置端口号<br>password：用来登陆和加密的密码<br>aes-256-cfb：选择加密方式，建议aes-256-cfb</p>
+<p>最后重启VPS即可，到此完成了Shadowsocks Server端的搭建</p>
+<h3 id="Ocserv">Ocserv</h3>
+<p>本来使用Shadowsocks可以满足全平台的需求，但是要求iOS设备越狱。不越狱使用Shadowsocks的iOS客户端非常鸡肋，所以需要新的解决方案 - <a href="http://imkevin.me/post/80157872840/anyconnect-iphone" target="_blank" rel="external">参考</a><br>ps：该教程中所用东西版本较旧，需要自己另找新版本</p>
+<h2 id="Client">Client</h2>
+<h3 id="PC_Android">PC Android</h3>
+<p><a href="http://shadowsocks.org/en/download/clients.html" target="_blank" rel="external">DOWNLOAD</a></p>
+<p>需要填写的信息包括：<br>Server IP 服务器地址<br>Server Port 端口号<br>Password 认证密码<br>Encryption 加密方式<br>Proxy Port 本地端口(1080)</p>
+<h3 id="COW">COW</h3>
+<p>在PC端仅使用Shadowsocks-GUI客户端是不够的，Shadowsocks采用Socks 5协议，有些应用并不支持。需要将其转成HTTP协议代理，这里推荐 <a href="https://github.com/cyfdecyf/cow" target="_blank" rel="external">COW</a></p>
+<h3 id="iOS">iOS</h3>
+<p>前面提到，在未越狱的情况下使用Shadowsocks客户端太鸡肋。而使用Ocserv搭载服务之后可通过 <a href="">AnyConnect</a> 连接(App Store搜索)</p>
 
       
     </div>
@@ -121,6 +134,12 @@
       
         <div class="alignright share-box">
   
+    
+      <a class="share-link share-weibo" href="http://v.t.sina.com.cn/share/share.php?url=http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/&title=《VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案》" title="weibo"></a>
+    
+      <a class="share-link share-google" href="https://plus.google.com/share?url=http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/&title=《VPS + Shadowsocks + COW + Ocserv + AnyConnect = 多平台翻墙解决方案》" title="google"></a>
+    
+  
 </div>
       
       <div class="clearfix"></div>
@@ -128,6 +147,27 @@
   </div>
 </article>
 
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'deffi'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  
+</section>
 
 
   <div id="menu-nav" class="footer-btn">
