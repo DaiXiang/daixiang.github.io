@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://deffi.info/"/>
-  <updated>2014-11-20T15:25:57.158Z</updated>
+  <updated>2014-11-29T10:33:57.528Z</updated>
   <id>http://deffi.info/</id>
   
   <author>
@@ -19,13 +19,15 @@
     <link href="http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-%E5%A4%9A%E5%B9%B3%E5%8F%B0%E7%BF%BB%E5%A2%99%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
     <id>http://deffi.info/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/</id>
     <published>2014-11-20T13:53:34.000Z</published>
-    <updated>2014-11-20T15:24:49.000Z</updated>
+    <updated>2014-11-29T10:33:15.000Z</updated>
     <content type="html"><![CDATA[<p>之前一直购买 <a href="jayproxy.net">Jayproxy</a> 服务来翻墙，便宜。后来拿到了 <a href="https://education.github.com/pack" target="_blank" rel="external">GitHub Student Developer Pack</a> - <a href="https://www.digitalocean.com/?refcode=12f2916a1202" target="_blank" rel="external">DigitalOcean</a> 的优惠。就拿来用做翻墙了。</p>
 <a id="more"></a>
 
 <h2 id="Server">Server</h2>
 <h3 id="VPS">VPS</h3>
 <p>选择<br>Size-$5/mo<br>Region-San Francisco 1<br>Image-Debian 7.0 x64<br>即可满足需求</p>
+<p>在选择网络节点之前可进行延时与丢包测试，选择最佳的节点<br>测试方法：<br><code>ping ip/domain -t</code></p>
+<p>DigitalOcean各节点测试域名：<br>New York：      speedtest-ny1.digitalocean.com<br>Amsterdam：     speedtest-ams1.digitalocean.com<br>San Francisco： speedtest-sfo1.digitalocean.com<br>Singapore：     speedtest-sgp1.digitalocean.com<br>London：          speedtest-lon1.digitalocean.com</p>
 <p>然后使用PuTTY对VPS进行远程命令管理 - <a href="http://www.tennfy.com/2022.html" target="_blank" rel="external">参考</a></p>
 <h3 id="Shadowsocks-libev">Shadowsocks-libev</h3>
 <p><a href="http://shadowsocks.org/index.html" target="_blank" rel="external">shadowsocks-libev</a> 更适合低配虚拟机。</p>
@@ -35,7 +37,7 @@
 
 <p>Final. 开机自启<br><code>$ vi /etc/rc.local</code></p>
 <p>在exit 0前面一行加入<br><code>/usr/local/bin/ss-server -s xxx.xxx.xxx.xxx -p port -k password -m aes-256-cfb &amp;</code></p>
-<p>xxx.xxx.xxx.xxx：是你VPS的ip<br>port：设置端口号<br>password：用来登陆和加密的密码<br>aes-256-cfb：选择加密方式，建议aes-256-cfb</p>
+<p>xxx.xxx.xxx.xxx：是你VPS的ip<br>port：设置端口号<br>password：用来登陆和加密的密码<br>aes-256-cfb：选择加密方式，建议aes-256-cfb，但rc4-md5实际使用速度更快</p>
 <p>最后重启VPS即可，到此完成了Shadowsocks Server端的搭建</p>
 <h3 id="Ocserv">Ocserv</h3>
 <p>本来使用Shadowsocks可以满足全平台的需求，但是要求iOS设备越狱。不越狱使用Shadowsocks的iOS客户端非常鸡肋，所以需要新的解决方案 - <a href="http://imkevin.me/post/80157872840/anyconnect-iphone" target="_blank" rel="external">参考</a><br>ps：该教程中所用东西版本较旧，需要自己另找新版本</p>
@@ -47,6 +49,7 @@
 <p>在PC端仅使用Shadowsocks-GUI客户端是不够的，Shadowsocks采用Socks 5协议，有些应用并不支持。需要将其转成HTTP协议代理，这里推荐 <a href="https://github.com/cyfdecyf/cow" target="_blank" rel="external">COW</a></p>
 <h3 id="iOS">iOS</h3>
 <p>前面提到，在未越狱的情况下使用Shadowsocks客户端太鸡肋。而使用Ocserv搭载服务之后可通过 <a href="">AnyConnect</a> 连接(App Store搜索)</p>
+<p>最后关于Shadowsocks详细的说明，<a href="https://plus.google.com/103234343779069345365/posts/Xce4EJpLGhX" target="_blank" rel="external">请戳</a></p>
 ]]></content>
     <summary type="html"><![CDATA[<p>之前一直购买 <a href="jayproxy.net">Jayproxy</a> 服务来翻墙，便宜。后来拿到了 <a href="https://education.github.com/pack" target="_blank" rel="external">GitHub Student Developer Pack</a> - <a href="https://www.digitalocean.com/?refcode=12f2916a1202" target="_blank" rel="external">DigitalOcean</a> 的优惠。就拿来用做翻墙了。</p>
 ]]></summary>
