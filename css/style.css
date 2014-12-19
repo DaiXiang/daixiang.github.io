@@ -137,12 +137,24 @@ a:hover {
   font-weight: normal;
   font-size: 2.5em;
   line-height: 1;
+  padding-bottom: 10px;
+}
+@media screen and (max-width: 600px) {
+  #header #nav-top h1 {
+    padding-bottom: 0;
+    line-height: normal;
+  }
 }
 #header #nav-top h2 {
+  color: #fff;
   font-weight: normal;
-  font-size: 0.9em;
-  line-height: 1;
-  margin-top: 10px;
+  font-size: 1em;
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  #header #nav-top h2 {
+    display: inline;
+  }
 }
 #header #nav-top .main-title {
   margin-left: 25px;
