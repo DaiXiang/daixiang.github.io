@@ -337,7 +337,7 @@
   <div class="clearfix"></div>
 </nav>
 <script type="text/javascript">
-  var flag = sessionStorage.getItem("deffi.info/pageviews/" + '1');
+  var flag = sessionStorage.getItem('http://deffi.info' + "/pageviews/" + '1');
   if (flag == "yes"){
   	var paths = ["/2014/12/09/广告屏蔽：国内各大电商-Web-App-页面的-Native-App-下载提示屏蔽/","/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/","/2014/10/03/Hexo-主题修改为博客实现更多功能/","/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/","/2014/08/17/hello-world/"]
   	$.each(paths, function(index, path){
@@ -367,7 +367,7 @@
 	  var json = to_json(workbook);
 
 	  var paths = ["/2014/12/09/广告屏蔽：国内各大电商-Web-App-页面的-Native-App-下载提示屏蔽/","/2014/11/20/VPS-+-Shadowsocks-+-COW-+Ocserv-+-AnyConnect-=-多平台翻墙解决方案/","/2014/10/03/Hexo-主题修改为博客实现更多功能/","/2014/09/30/GitHub-Pages-+-Hexo-+-GoDaddy-+-DNSPod-=-Blog/","/2014/08/17/hello-world/"]
-sessionStorage.setItem("deffi.info/pageviews/" + '1', "yes");
+sessionStorage.setItem('http://deffi.info' + "/pageviews/" + '1', "yes");
 $.each(json.BlogPageviews, function(index, item){
   if($.inArray(item.BlogPageviews, paths) >= 0){
     document.getElementById(item.BlogPageviews).innerHTML = item.undefined;
