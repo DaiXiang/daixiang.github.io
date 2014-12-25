@@ -28,10 +28,12 @@ Weibo: @睡久了脸会胖">
   <link rel="alternate" href="http://deffi.info/atom.xml" title="Deffi" type="application/atom+xml">
   <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
+
+<script src="/js/dist/xlsx.core.min.js"></script>
   
 <script type="text/javascript">
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -74,6 +76,9 @@ Weibo: @睡久了脸会胖">
   <div class="post-content">
     <header>
       
+      <div class="alignright">
+        <a id="/about-me/index.html" class="pageviews"></a>
+      </div>
       
       
   
@@ -113,6 +118,11 @@ Weibo: @睡久了脸会胖">
 </article>
 
 
+
+
+  <script type="text/javascript">
+  document.getElementById('/about-me/index.html').innerHTML = sessionStorage.getItem('/about-me/index.html');
+</script>
 </div></div>
     <aside id="sidebar" class="alignright">
   
@@ -205,8 +215,8 @@ Weibo: @睡久了脸会胖">
   navbar();
   $(window).resize(navbar);
 </script>
-<div id="totop" class="footer-btn">
-  <a title="Return to Top"><img src="/img/scrollup.png"/></a>
+<div id="totop" class="footer-btn to-top">
+  <a title="Return to Top"></a>
 </div>
 
 <script type="text/javascript">
@@ -227,7 +237,7 @@ Weibo: @睡久了脸会胖">
 		var scrollTop = $(document).scrollTop();       
 		if ( scrollTop > upperLimit ) {
 		  $(scrollElem).stop().fadeTo(300, 1); // fade back in
-		  $(scrollElem).animate({bottom: "50px"}, { queue: false, duration: 10 });
+		  $(scrollElem).animate({bottom: "58px"}, { queue: false, duration: 10 });
 		} else {
 		  $(scrollElem).stop().fadeTo(300, 0); // fade out
 	      $(scrollElem).animate({bottom: "-200px"}, { queue: false, duration: 10 });
