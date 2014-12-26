@@ -226,7 +226,71 @@
 
 
   <script type="text/javascript">
-  document.getElementById('/2014/08/17/hello-world/').innerHTML = sessionStorage.getItem('/2014/08/17/hello-world/');
+  var views = sessionStorage.getItem('/2014/08/17/hello-world/');
+  console.log(views)
+  if (views != null) {
+    var post = document.getElementById('/2014/08/17/hello-world/');
+    post.innerHTML = views;
+    post.style.display = "inline";
+  } else {
+    var flag = sessionStorage.getItem('http://deffi.info' + "/pageviews/" + '0');
+if (flag == "yes"){
+  var paths = null
+  $.each(paths, function(index, path){
+    var post = document.getElementById(path);
+    var views = sessionStorage.getItem(path);
+    if (views != null) {
+      post.innerHTML = views;
+      post.style.display = "inline";
+    }
+  });
+} else if (flag == null){
+  if(typeof require !== 'undefined') XLSX = require('xlsx');
+
+  var url = "https://docs.google.com/spreadsheets/d/" + '1torOoSeJCGF4Y-0G7Bnjrpmfa7xXyC7oUGRpfiHoAr0' + "/export";
+  var oReq = new XMLHttpRequest();
+  oReq.open("GET", url, true);
+  oReq.responseType = "arraybuffer";
+
+  oReq.onload = function(e) {
+    var arraybuffer = oReq.response;
+
+    /* convert data to binary string */
+    var data = new Uint8Array(arraybuffer);
+	var arr = new Array();
+	for(var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+	var bstr = arr.join("");
+
+	/* Call XLSX */
+	var workbook = XLSX.read(bstr, {type:"binary"});
+
+    /* DO SOMETHING WITH workbook HERE */
+	var json = to_json(workbook);
+
+	$.each(json.BlogPageviews, function(index, item){
+  if(item.BlogPageviews == '/2014/08/17/hello-world/'){
+    var post = document.getElementById(item.BlogPageviews);
+    post.innerHTML = item.undefined;
+    post.style.display = "inline";
+    sessionStorage.setItem(item.BlogPageviews, item.undefined);
+  }
+})
+  }
+
+  oReq.send();
+}
+
+function to_json(workbook) {
+  var result = {};
+  workbook.SheetNames.forEach(function(sheetName) {
+	var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+      if(roa.length > 0){
+		result[sheetName] = roa;
+	  }
+  });
+  return result;
+}
+  }
 </script>
 </div></div>
     <aside id="sidebar" class="alignright">

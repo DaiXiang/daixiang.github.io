@@ -193,8 +193,8 @@ a:hover {
   }
 }
 article {
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
+  -webkit-box-shadow: 5px 5px 10px #ddd;
+  box-shadow: 5px 5px 10px #ddd;
   background: #fff;
 }
 article.page {
@@ -352,6 +352,9 @@ article header div a.comment-link {
 }
 article header div a.comment-link:before {
   content: '\f075';
+}
+article header div a.pageviews {
+  display: none;
 }
 article header div a.pageviews:before {
   content: '\f06e';
@@ -698,7 +701,7 @@ article footer .share-link.share-google:hover {
 #pagination a {
   display: block;
   padding: 5px 10px;
-  background: #ddd;
+  background: #fff;
   color: #999;
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 1px #fff;
@@ -710,10 +713,18 @@ article footer .share-link.share-google:hover {
   text-decoration: none;
   text-shadow: none;
 }
+#pagination .prev {
+  -webkit-box-shadow: 3px 3px 5px #ddd;
+  box-shadow: 3px 3px 5px #ddd;
+}
 #pagination .prev:before {
   content: '\f053';
   padding-right: 10px;
   font-family: FontAwesome;
+}
+#pagination .next {
+  -webkit-box-shadow: 3px 3px 5px #ddd;
+  box-shadow: 3px 3px 5px #ddd;
 }
 #pagination .next:after {
   content: '\f054';
@@ -762,8 +773,8 @@ article footer .share-link.share-google:hover {
 }
 #sidebar .widget {
   background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
+  -webkit-box-shadow: 3px 3px 5px #ddd;
+  box-shadow: 3px 3px 5px #ddd;
   word-wrap: break-word;
   margin-bottom: 30px;
 }
@@ -806,9 +817,9 @@ article footer .share-link.share-google:hover {
   font-style: italic;
   font-size: 1em;
   padding: 10px 15px;
-  border: 1px solid #363636;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
+  border: 0px;
+  -webkit-box-shadow: 3px 3px 5px #ddd;
+  box-shadow: 3px 3px 5px #ddd;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
