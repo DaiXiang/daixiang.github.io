@@ -151,8 +151,11 @@
     var nav = $('#menu-nav');
     var toccopy;
     var status = true;
-    if ($(window).width() <= 583)
+    if ($(window).width() <= 583) {
       status = false;
+      $('#menu-nav').removeClass("quick-nav-close");
+      $('#menu-nav').addClass("quick-nav-open");
+    }
     var first = true;
     var position = toc.position();
     var wid = toc.width();
